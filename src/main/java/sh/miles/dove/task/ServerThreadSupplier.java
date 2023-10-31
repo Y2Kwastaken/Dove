@@ -1,4 +1,4 @@
-package sh.miles.suketto.bukkit.task.ticking;
+package sh.miles.dove.task;
 
 /**
  * Intended to be used within the {@link ServerThreadWorker}. Basic supplier of a value and can easily be extended

@@ -1,4 +1,4 @@
-package sh.miles.suketto.bukkit.chat.translation.replacing;
+package sh.miles.dove.lang.replacement;
 
 import com.google.common.base.Preconditions;
 import org.jetbrains.annotations.NotNull;

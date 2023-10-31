@@ -1,4 +1,4 @@
-package sh.miles.suketto.bukkit.chat;
+package sh.miles.dove.util;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;

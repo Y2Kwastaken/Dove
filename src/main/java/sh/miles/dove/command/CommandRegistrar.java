@@ -1,11 +1,11 @@
-package sh.miles.suketto.bukkit.command;
+package sh.miles.dove.command;
 
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandMap;
 import org.bukkit.command.PluginCommand;
 import org.bukkit.plugin.Plugin;
 import org.jetbrains.annotations.NotNull;
-import sh.miles.suketto.core.utils.ReflectionUtils;
+import sh.miles.dove.util.ReflectionUtils;
 
 import java.util.Map;
 

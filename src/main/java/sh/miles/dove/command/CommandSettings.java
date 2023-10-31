@@ -1,10 +1,10 @@
-package sh.miles.suketto.bukkit.command;
+package sh.miles.dove.command;
 
 import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.chat.BaseComponent;
 import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.command.CommandSender;
-import sh.miles.suketto.bukkit.chat.Component;
+import sh.miles.dove.util.Component;
 
 /**
  * Represents CommandSettings that can be applied to a command for enhanced feature sets

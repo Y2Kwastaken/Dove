@@ -1,4 +1,4 @@
-package sh.miles.suketto.bukkit.chat;
+package sh.miles.dove.util;
 
 import com.google.common.base.Preconditions;
 import net.md_5.bungee.api.ChatColor;

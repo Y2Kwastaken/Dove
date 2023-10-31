@@ -1,4 +1,4 @@
-package sh.miles.suketto.bukkit.command;
+package sh.miles.dove.command;
 
 import com.google.common.base.Preconditions;
 import org.jetbrains.annotations.NotNull;

@@ -1,4 +1,4 @@
-package sh.miles.suketto.bukkit.command;
+package sh.miles.dove.command;
 
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;

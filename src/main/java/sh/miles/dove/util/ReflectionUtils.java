@@ -1,10 +1,8 @@
-package sh.miles.suketto.core.utils;
+package sh.miles.dove.util;
 
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import sh.miles.suketto.core.function.ThrowingFunction;
-import sh.miles.suketto.core.function.ThrowingSupplier;
 
 import java.lang.invoke.MethodHandle;
 import java.lang.invoke.MethodHandles;
@@ -14,8 +12,6 @@ import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Objects;
-import java.util.function.Function;
-import java.util.function.Supplier;
 
 /**
  * Provides a handful of utilities for reflection

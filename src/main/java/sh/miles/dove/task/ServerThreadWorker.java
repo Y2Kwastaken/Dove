@@ -1,4 +1,4 @@
-package sh.miles.suketto.bukkit.task.ticking;
+package sh.miles.dove.task;
 
 import org.bukkit.Bukkit;
 

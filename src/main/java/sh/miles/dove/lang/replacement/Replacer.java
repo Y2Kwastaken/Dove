@@ -2,7 +2,7 @@ package sh.miles.dove.lang.replacement;
 
 import com.google.common.base.Preconditions;
 import org.jetbrains.annotations.NotNull;
-import sh.miles.suketto.bukkit.chat.translation.TranslationComponent;
+import sh.miles.dove.lang.LanguageComponent;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,8 +10,8 @@ import java.util.Objects;
 import java.util.function.BiFunction;
 
 /**
- * Represents a replacement within a {@link TranslationComponent} without a yet known value. e.g. "Your value is
- * {value}" would have the replacement with the key "value".
+ * Represents a replacement within a {@link LanguageComponent} without a yet known value. e.g. "Your value is {value}" would have the
+ * replacement with the key "value".
  */
 public class Replacer implements BiFunction<String, Object, String> {
 

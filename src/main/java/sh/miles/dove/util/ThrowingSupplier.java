@@ -1,4 +1,4 @@
-package sh.miles.suketto.core.function;
+package sh.miles.dove.util;
 
 /**
  * A supplier that can throw a checked exception
