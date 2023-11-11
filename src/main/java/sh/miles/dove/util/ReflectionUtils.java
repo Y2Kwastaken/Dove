@@ -54,6 +54,22 @@ public final class ReflectionUtils {
         }
     }
 
+    public static <T> T newInstance(@NotNull final Class<T> clazz, @NotNull final Class<?>[] params, @NotNull final Object[] objs) {
+        Objects.requireNonNull(clazz);
+        Objects.requireNonNull(params);
+        Objects.requireNonNull(objs);
+
+        try {
+            final Constructor<T> constructor = clazz.getDeclaredConstructor(params);
+            constructor.setAccessible(true);
+            final T instance = constructor.newInstance(objs);
+            constructor.setAccessible(false);
+            return instance;
+        } catch (NoSuchMethodException | InstantiationException | IllegalAccessException | InvocationTargetException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     /**
      * Creates a new instance of a class from the provided class path and constructor paramaters
      *
@@ -207,6 +223,21 @@ public final class ReflectionUtils {
             final Field field = clazz.getDeclaredField(fieldName);
             return accessAndReturn(field, () -> lookup.unreflectSetter(field));
         } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    /**
+     * Attempts to safely invoke a method handle if a failure occurs this method throws a runtime exception
+     *
+     * @param handle     the handle
+     * @param parameters the parameters
+     * @return the object created from the invocation
+     */
+    public static Object safeInvoke(MethodHandle handle, Object... parameters) {
+        try {
+            return handle.invokeWithArguments(parameters);
+        } catch (Throwable e) {
             throw new RuntimeException(e);
         }
     }

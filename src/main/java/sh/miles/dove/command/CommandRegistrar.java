@@ -7,6 +7,8 @@ import org.bukkit.plugin.Plugin;
 import org.jetbrains.annotations.NotNull;
 import sh.miles.dove.util.ReflectionUtils;
 
+import java.lang.invoke.MethodHandle;
+import java.sql.Ref;
 import java.util.Map;
 
 /**
@@ -16,6 +18,7 @@ public final class CommandRegistrar {
 
     private final CommandMap commandMap;
     private final Map<String, org.bukkit.command.Command> knownCommands;
+    private final MethodHandle constructor;
 
     /**
      * Creates SCommandRegistrar
@@ -24,17 +27,18 @@ public final class CommandRegistrar {
     public CommandRegistrar() {
         this.commandMap = ReflectionUtils.getField(Bukkit.getPluginManager(), "commandMap", CommandMap.class);
         this.knownCommands = (Map<String, org.bukkit.command.Command>) ReflectionUtils.getField(commandMap, "knownCommands", Map.class);
+        this.constructor = ReflectionUtils.getConstructor(PluginCommand.class, new Class[]{String.class, Plugin.class});
     }
 
     /**
      * Registers a command to the server by using spigot's internal {@link PluginCommand} class
      *
-     * @param plugin  the plugin to registere the command with
+     * @param plugin  the plugin to register the command with
      * @param command the command to register
      */
     public void register(@NotNull final Plugin plugin, @NotNull final Command command) {
         final CommandLabel label = command.getCommandLabel();
-        final PluginCommand pluginCommand = ReflectionUtils.newInstance(PluginCommand.class, new Object[]{label.getName(), plugin});
+        final PluginCommand pluginCommand = (PluginCommand) ReflectionUtils.safeInvoke(this.constructor, label.getName(), plugin);
         if (pluginCommand == null) {
             throw new RuntimeException("Creation of PluginCommand failed");
         }

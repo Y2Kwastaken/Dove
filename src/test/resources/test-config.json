@@ -1,0 +1,10 @@
+{
+  "string-key": "string-value",
+  "int-key": 1,
+  "double-key": 5.5,
+  "boolean-key": true,
+  "custom-object": {
+    "name": "Joe",
+    "age": 43
+  }
+}
