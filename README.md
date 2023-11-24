@@ -36,8 +36,7 @@ public class ExamplePlugin extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        Dove.init(this, (builder) -> {
-        });
+        Dove.init(this, new ArrayList());
     }
 }
 ```
@@ -86,10 +85,7 @@ public class ExamplePlugin extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        Dove.init(this, (GsonBuilder builder) -> {
-            builder.registerTypeAdapter(new UUIDAdapter(), UUID.class);
-            return builder;
-        });
+        Dove.init(this, List.of(new UUIDAdapter()));
     }
 }
 ```
@@ -106,8 +102,7 @@ public class ExamplePlugin extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        Dove.init(this, (GsonBuilder builder) -> {
-        });
+        Dove.init(this, new ArrayList());
         JsonConfig config = new JsonConfig(Dove.getJsonHelper().getGson(), this, "test-config.json");
         boolean isDoveBeingUsed = config.getBoolean("am-i-using-dove");
         Dove.log().info("Dove's Status is: " + isDoveBeingUsed);
@@ -220,8 +215,7 @@ public class ExamplePlugin extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        Dove.init(this, (GsonBuilder builder) -> {
-        });
+        Dove.init(this, new ArrayList());
         Dove.getDependencyRegistry().register(new VaultDependency());
         VaultDependency dependency = Dove.getDependencyRegistry().getEnabled(VaultDependency.class);
         for (final Player player : Bukkit.getOnlinePlayers()) {

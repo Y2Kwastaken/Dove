@@ -4,6 +4,7 @@ import com.google.common.base.Preconditions;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import org.bukkit.block.data.BlockData;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.Plugin;
 import org.jetbrains.annotations.NotNull;
 import sh.miles.dove.configuration.adapter.inventory.ItemStackAdapter;
@@ -67,7 +68,7 @@ public class JsonHelper {
 
     private static void registerDefaults(@NotNull final GsonBuilder builder) {
         builder.registerTypeHierarchyAdapter(BlockData.class, new BlockDataJsonAdapter());
-        builder.registerTypeAdapter(ItemStackAdapter.class, new ItemStackAdapter());
+        builder.registerTypeAdapter(ItemStack.class, new ItemStackAdapter());
     }
 
 }
