@@ -1,4 +1,4 @@
-package sh.miles.dove.inventory;
+package sh.miles.irondove.menu;
 
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;

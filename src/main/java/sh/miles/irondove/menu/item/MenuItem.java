@@ -1,4 +1,4 @@
-package sh.miles.dove.inventory.item;
+package sh.miles.irondove.menu.item;
 
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;

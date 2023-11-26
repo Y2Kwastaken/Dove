@@ -1,10 +1,9 @@
-package sh.miles.dove.inventory;
+package sh.miles.irondove.menu;
 
 import org.bukkit.Bukkit;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.plugin.Plugin;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,12 +11,11 @@ import java.util.Optional;
 
 public final class MenuManager {
 
-    private static MenuManager instance;
-
     private final Map<Inventory, Menu<?>> menus;
 
-    private MenuManager() {
+    public MenuManager(@NotNull final Plugin plugin) {
         this.menus = new HashMap<>();
+        Bukkit.getPluginManager().registerEvents(new MenuListener(this), plugin);
     }
 
     public void register(@NotNull final Menu<?> menu) {
@@ -32,13 +30,5 @@ public final class MenuManager {
         return Optional.ofNullable(menus.get(inventory));
     }
 
-    public static void init(@NotNull final Plugin plugin) {
-        instance = new MenuManager();
-        Bukkit.getPluginManager().registerEvents(new MenuListener(instance), plugin);
-    }
-
-    public static MenuManager getInstance() {
-        return instance;
-    }
 
 }
