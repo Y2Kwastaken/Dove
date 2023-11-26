@@ -262,6 +262,16 @@ public class CubeRegion implements Iterable<BlockVector> {
         return subtract(vector.getBlockX(), vector.getBlockY(), vector.getBlockZ());
     }
 
+    @NotNull
+    public BlockVector getMin() {
+        return new BlockVector(minX, minY, minZ);
+    }
+
+    @NotNull
+    public BlockVector getMax() {
+        return new BlockVector(maxX, maxY, maxZ);
+    }
+
     public double getMaxX() {
         return maxX;
     }
