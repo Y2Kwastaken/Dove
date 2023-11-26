@@ -10,6 +10,7 @@ import org.bukkit.util.Vector;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 import java.util.UUID;
 
@@ -103,6 +104,24 @@ public final class WorldCubeRegion extends CubeRegion {
             }
         }
         return chunks;
+    }
+
+    @NotNull
+    public UUID getWorldUid() {
+        return worldUid;
+    }
+
+    @Override
+    public boolean equals(final Object o) {
+        if (this == o) return true;
+        if (!(o instanceof final WorldCubeRegion that)) return false;
+        if (!super.equals(o)) return false;
+        return Objects.equals(worldUid, that.worldUid);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), worldUid);
     }
 
     private World worldOrThrow() {
