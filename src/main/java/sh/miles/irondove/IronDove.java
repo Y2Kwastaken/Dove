@@ -20,4 +20,7 @@ public final class IronDove {
         IronDove.menuManager = new MenuManager(plugin);
     }
 
+    public static MenuManager getMenuManager() {
+        return menuManager;
+    }
 }
